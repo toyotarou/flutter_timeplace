@@ -1,0 +1,136 @@
+http://49.212.175.205:8082/api/timeplace
+
+[
+    {
+        "id": 1,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "11:00",
+        "place": "移動中",
+        "price": 220,
+        "created_at": null
+    },
+    {
+        "id": 2,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "11:13",
+        "place": "錦糸町",
+        "price": 738,
+        "created_at": null
+    },
+    {
+        "id": 3,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "11:28",
+        "place": "錦糸町",
+        "price": 1200,
+        "created_at": null
+    },
+    {
+        "id": 4,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "18:10",
+        "place": "錦糸町",
+        "price": 80,
+        "created_at": null
+    },
+    {
+        "id": 5,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "18:15",
+        "place": "移動中",
+        "price": 220,
+        "created_at": null
+    },
+    {
+        "id": 6,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "18:53",
+        "place": "下総中山",
+        "price": 6205,
+        "created_at": null
+    },
+    {
+        "id": 7,
+        "year": "2020",
+        "month": "08",
+        "day": "01",
+        "ymd": "20200801",
+        "time": "19:05",
+        "place": "下総中山",
+        "price": 388,
+        "created_at": null
+    },
+    {
+        "id": 8,
+        "year": "2020",
+        "month": "08",
+        "day": "02",
+        "ymd": "20200802",
+        "time": "08:30",
+        "place": "西船橋",
+        "price": 129,
+        "created_at": null
+    },
+    {
+        "id": 9,
+        "year": "2020",
+        "month": "08",
+        "day": "02",
+        "ymd": "20200802",
+        "time": "08:45",
+        "place": "西船橋",
+        "price": 9030,
+        "created_at": null
+    },
+
+
+
+
+### 追加-1
+
+
+http://49.212.175.205:8082/api/temple-latlng
+
+[
+    {
+        "id": 1,
+        "temple": "港区愛宕　愛宕神社",
+        "address": "東京都港区愛宕1-5-3",
+        "lat": "35.6650691",
+        "lng": "139.7485152",
+        "rank": "S"
+    },
+    {
+        "id": 2,
+        "temple": "中央区日本橋小網町　小網神社",
+        "address": "東京都中央区日本橋小網町16-23",
+        "lat": "35.6841779",
+        "lng": "139.7805744",
+        "rank": "S"
+    },
+
+
+
+
+
+
+
+
