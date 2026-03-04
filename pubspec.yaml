@@ -17,6 +17,9 @@ dependencies:
   http: ^1.2.2
   font_awesome_flutter: ^10.8.0
 
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.3.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -26,3 +29,18 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - assets/images/
+
+flutter_native_splash:
+  image: "assets/images/ic_launcher.png"
+  color: "222222"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/ic_launcher.png"
+
+  adaptive_icon_background: "#222222"
+  adaptive_icon_foreground: "assets/images/ic_launcher.png"

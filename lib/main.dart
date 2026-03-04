@@ -295,6 +295,12 @@ class CalendarPage extends HookWidget {
                             dateKey != null &&
                             (timePlaceMap[dateKey]?.any((TimePlace p) => templeLatLngMap.containsKey(p.place)) ??
                                 false);
+                        final int templeCount = dateKey != null
+                            ? (timePlaceMap[dateKey]
+                                      ?.where((TimePlace p) => templeLatLngMap.containsKey(p.place))
+                                      .length ??
+                                  0)
+                            : 0;
 
                         final Widget cell = Container(
                           width: cellSize,
@@ -322,11 +328,26 @@ class CalendarPage extends HookWidget {
 
                                     // 左下: 神社アイコン
                                     if (hasTemple)
-                                      const Align(
-                                        alignment: Alignment.bottomLeft,
+                                      Positioned(
+                                        bottom: 0,
+                                        left: 0,
+
                                         child: Padding(
-                                          padding: EdgeInsets.all(3),
-                                          child: Icon(FontAwesomeIcons.toriiGate, color: Color(0xFFFBB6CE), size: 10),
+                                          padding: const EdgeInsets.all(3),
+                                          child: Column(
+                                            children: [
+                                              const Icon(
+                                                FontAwesomeIcons.toriiGate,
+                                                color: Color(0xFFFBB6CE),
+                                                size: 10,
+                                              ),
+
+                                              Text(
+                                                '$templeCount',
+                                                style: const TextStyle(fontSize: 10, color: Color(0xFFFBB6CE)),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
 
