@@ -83,14 +83,23 @@ class CalendarPage extends HookWidget {
 
     // ⑤ useEffect: 月が切り替わるたびにデバッグログを出力する副作用
     useEffect(() {
-      debugPrint(
-        '表示月が変わりました: '
-        '${displayMonth.value.year}年${displayMonth.value.month}月',
-      );
+      // debugPrint(
+      //   '表示月が変わりました: '
+      //   '${displayMonth.value.year}年${displayMonth.value.month}月',
+      // );
       return null;
     }, <Object?>[displayMonth.value]);
 
+    // データの最古月 (2024-01) より前には遡れない
+    final DateTime earliestMonth = DateTime(2024);
+    final bool canGoPrevious =
+        displayMonth.value.isAfter(earliestMonth) ||
+        (displayMonth.value.year == earliestMonth.year && displayMonth.value.month > earliestMonth.month);
+
     void goToPreviousMonth() {
+      if (!canGoPrevious) {
+        return;
+      }
       final DateTime cur = displayMonth.value;
       displayMonth.value = DateTime(cur.year, cur.month - 1);
     }
@@ -113,7 +122,7 @@ class CalendarPage extends HookWidget {
           // Dialog + SizedBox(maxFinite) で insetPadding(20px) いっぱいに広げる
           return Dialog(
             backgroundColor: _surfaceColor,
-            insetPadding: const EdgeInsets.all(20),
+            insetPadding: const EdgeInsets.all(30),
             child: SizedBox(
               width: double.maxFinite,
               height: double.maxFinite,
@@ -208,10 +217,13 @@ class CalendarPage extends HookWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                IconButton(
-                  tooltip: '前の月',
-                  onPressed: goToPreviousMonth,
-                  icon: const Icon(Icons.arrow_back, color: _textColor),
+                Opacity(
+                  opacity: canGoPrevious ? 1.0 : 0.25,
+                  child: IconButton(
+                    tooltip: '前の月',
+                    onPressed: canGoPrevious ? goToPreviousMonth : null,
+                    icon: const Icon(Icons.arrow_back, color: _textColor),
+                  ),
                 ),
                 Text(
                   '${displayMonth.value.year}年 ${displayMonth.value.month}月',
@@ -335,7 +347,7 @@ class CalendarPage extends HookWidget {
                                         child: Padding(
                                           padding: const EdgeInsets.all(3),
                                           child: Column(
-                                            children: [
+                                            children: <Widget>[
                                               const Icon(
                                                 FontAwesomeIcons.toriiGate,
                                                 color: Color(0xFFFBB6CE),
